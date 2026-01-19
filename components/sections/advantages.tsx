@@ -10,7 +10,11 @@ export function Advantages() {
   return (
     <section id="advantages" className="py-20 md:py-32 bg-muted/30">
       <Container>
-        <SectionTitle title={advantagesContent.title} />
+        <SectionTitle 
+          badge="Nos Avantages"
+          title="Pourquoi choisir DjassApp pour votre commerce ?"
+          subtitle="Une solution innovante qui combine technologie vocale avancée et simplicité d'utilisation pour offrir une expérience unique aux vendeurs et acheteurs."
+        />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {advantagesContent.items.map((item, index) => {
             const Icon = icons[index];

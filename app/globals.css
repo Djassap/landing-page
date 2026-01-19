@@ -149,7 +149,7 @@
   
   /* Typography - ONLY 3 SIZES */
   .text-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-display font-black;
+    @apply text-4xl md:text-5xl lg:text-6xl tracking-normal;
   }
   
   .text-section-title {

@@ -1,44 +1,75 @@
 import { Container } from '../ui/container';
 import { SectionTitle } from '../ui/section-title';
-import { Mic, Check } from 'lucide-react';
+import { Mic, Check, Sparkles } from 'lucide-react';
 import { solutionContent } from '@/config/content';
 
 export function Solution() {
   return (
-    <section id="solution" className="py-20 md:py-32 bg-background">
+    <section id="solution" className="py-20 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background">
       <Container>
         <SectionTitle 
-          title={solutionContent.title} 
-          subtitle={solutionContent.subtitle} 
+          badge="Notre Solution"
+          title="Le Djassaman : L'assistant vocal qui transforme votre commerce"
+          subtitle="Notre intelligence artificielle vocale guide les vendeurs et acheteurs pas à pas, rendant le commerce en ligne accessible à tous, même sans expérience technique."
         />
         
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-gradient-to-br from-primary/10 to-brand/10 rounded-3xl p-8 border border-border">
-            <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center mb-4">
-              <Mic className="w-7 h-7 text-primary-foreground" />
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Djassaman - Elegant presentation */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 px-5 py-3 bg-primary/5 rounded-full border border-primary/10">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg shadow-primary/20">
+                <Mic className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-foreground">
+                  {solutionContent.djassaman.title}
+                </h3>
+                <p className="text-xs text-primary font-medium">{solutionContent.djassaman.subtitle}</p>
+              </div>
             </div>
-            <h3 className="text-2xl font-display font-semibold text-foreground mb-2">
-              {solutionContent.djassaman.title}
-            </h3>
-            <p className="text-sm text-muted-foreground mb-4">{solutionContent.djassaman.subtitle}</p>
-            <p className="text-foreground mb-4">{solutionContent.djassaman.sellerDescription}</p>
-            <p className="text-muted-foreground">{solutionContent.djassaman.buyerDescription}</p>
+            
+            <div className="space-y-4 pl-4 border-l-2 border-primary/20">
+              <p className="text-base text-foreground/90 leading-relaxed">
+                {solutionContent.djassaman.sellerDescription}
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {solutionContent.djassaman.buyerDescription}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 pl-4">
+              <Sparkles className="w-5 h-5 text-primary" />
+              <p className="text-sm text-muted-foreground italic">
+                Une expérience guidée et intuitive à chaque étape
+              </p>
+            </div>
           </div>
 
-          <div className="bg-muted/50 rounded-3xl p-8 border border-border">
-            <h3 className="text-2xl font-display font-semibold text-foreground mb-6">
+          {/* Inclusion - Clean checklist */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-bold text-foreground">
               {solutionContent.inclusion.title}
             </h3>
-            <ul className="space-y-4">
-              {solutionContent.inclusion.points.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-success" />
+            
+            <div className="space-y-3">
+              {solutionContent.inclusion.points.map((point, index) => (
+                <div 
+                  key={point} 
+                  className="group flex items-start gap-4 rounded-xl hover:bg-muted/50 transition-all duration-200"
+                >
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary flex-shrink-0 mt-0.5 transition-colors">
+                    <Check className="w-4 h-4 text-primary-foreground" />
                   </div>
-                  <span className="text-foreground">{point}</span>
-                </li>
+                  <p className="text-foreground/80 leading-relaxed flex-1">{point}</p>
+                </div>
               ))}
-            </ul>
+            </div>
+
+            <div className="pl-4 pt-4 border-t border-border">
+              <p className="text-sm text-muted-foreground">
+                Accessible à <span className="text-foreground font-semibold">tous</span>, sans barrière technique ni linguistique
+              </p>
+            </div>
           </div>
         </div>
       </Container>

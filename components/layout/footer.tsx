@@ -1,46 +1,61 @@
 import { Container } from '../ui/container';
-import { siteConfig } from '@/config/content';
+import { siteConfig, footerContent } from '@/config/content';
+import { Mail } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="border-t border-border/50 bg-primary text-primary-foreground py-16">
       <Container>
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <svg viewBox="0 0 100 100" className="w-6 h-6 text-brand-200">
-                <path
-                  fill="currentColor"
-                  d="M50 10 C30 10 20 30 25 45 C15 50 15 70 30 75 C35 90 65 90 70 75 C85 70 85 50 75 45 C80 30 70 10 50 10"
-                />
-              </svg>
-            </div>
-            <div>
-              <span className="font-display font-bold text-lg">{siteConfig.companyName}</span>
-              <p className="text-xs text-muted-foreground opacity-60">Par {siteConfig.parentCompany}</p>
-            </div>
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <Image src="/djassapp_dark.png" alt="Logo" width={150} height={50} className="mb-4" />
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-muted-foreground opacity-60">
-            <a href="#problem" className="hover:text-background transition-colors">
-              Problème
-            </a>
-            <a href="#solution" className="hover:text-background transition-colors">
-              Solution
-            </a>
-            <a href="#market" className="hover:text-background transition-colors">
-              Marché
-            </a>
-            <a href="#contact" className="hover:text-background transition-colors">
-              Contact
-            </a>
+          {/* Navigation */}
+          <div>
+            <h4 className="font-semibold mb-4">Navigation</h4>
+            <ul className="space-y-2.5">
+              {footerContent.navigation.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="text-sm hover:underline transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <p className="text-sm text-muted-foreground opacity-40">
-            {currentYear} {siteConfig.parentCompany}. Tous droits réservés.
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold mb-4">Contact</h4>
+            <div className="space-y-3">
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="flex items-center gap-2 text-sm hover:underline"
+              >
+                <Mail className="w-4 h-4" />
+                {siteConfig.contact.email}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm">
+            © {currentYear} {siteConfig.parentCompany}. Tous droits réservés.
           </p>
+          <div className="flex items-center gap-6 text-sm">
+            {footerContent.legal.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-primary transition-colors">
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </Container>
     </footer>

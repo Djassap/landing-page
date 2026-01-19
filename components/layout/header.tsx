@@ -36,7 +36,7 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center gap-2">
-            <Image src="/djassapp_v.svg" alt="Logo" width={150} height={150} />
+            <Image src="/djassapp_logo.png" alt="Logo" width={150} height={150} />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">

@@ -1,34 +1,32 @@
+import { ReactNode } from 'react';
+
 interface SectionTitleProps {
-  title: string;
+  badge?: string;
+  title: string | ReactNode;
   subtitle?: string;
-  centered?: boolean;
-  light?: boolean;
 }
 
-export function SectionTitle({ 
-  title, 
-  subtitle, 
-  centered = true, 
-  light = false 
-}: SectionTitleProps) {
+export function SectionTitle({ badge, title, subtitle }: SectionTitleProps) {
   return (
-    <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''}`}>
-      <h2
-        className={`text-section-title ${
-          light ? 'text-white' : 'text-foreground'
-        }`}
-      >
-        {title}
-      </h2>
-      {subtitle && (
-        <p
-          className={`mt-4 text-lg md:text-xl max-w-3xl ${centered ? 'mx-auto' : ''} ${
-            light ? 'text-white/80' : 'text-muted-foreground'
-          }`}
-        >
-          {subtitle}
-        </p>
+    <div className="mb-16 w-full">
+      {badge && (
+        <div className="text-sm font-medium text-primary uppercase tracking-wider mb-6">
+          {badge}
+        </div>
       )}
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start w-full">
+        {/* Left: Title */}
+        <h2 className="text-section-title text-foreground leading-tight break-words">
+          {title}
+        </h2>
+        
+        {/* Right: Description */}
+        {subtitle && (
+          <p className="text-lg text-muted-foreground leading-relaxed lg:pt-2 break-words">
+            {subtitle}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
