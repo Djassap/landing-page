@@ -12,7 +12,7 @@ export const heroContent = {
   title: 'Créez votre boutique par la voix',
   subtitle: 'en moins de 5 minutes',
   description:
-    'La première marketplace mobile pensée pour le commerce informel ivoirien. Zéro barrière technique, zéro barrière linguistique, zéro coût initial.',
+    'La première marketplace mobile pensée pour le commerce informel. Zéro barrière technique, zéro barrière linguistique, zéro coût initial.',
   cta: {
     primary: 'Demander le deck',
     secondary: 'Nous contacter',
@@ -23,6 +23,11 @@ export const problemContent = {
   title: 'Le commerce informel mérite mieux',
   blocks: [
     {
+      title: 'Fracture numérique',
+      description:
+        'Une majorité des commerçants privilégient les langues locales dans leurs échanges et rencontrent encore des obstacles d’accès aux outils numériques traditionnels.',
+    },
+    {
       title: 'Fragmentation',
       description:
         'Des milliers de mini-sites isolés, sans trafic, mal conçus et mal référencés. Chaque vendeur réinvente la roue dans son coin.',
@@ -31,11 +36,6 @@ export const problemContent = {
       title: 'Friction acheteurs',
       description:
         'Trop de liens WhatsApp, trop de pages Facebook, trop de messages non lus. Trouver le bon produit au bon prix devient un parcours du combattant.',
-    },
-    {
-      title: 'Fracture numérique',
-      description:
-        'La majorité des commerçants sont analphabètes ou peu lettrés, parlent mieux dioula que français, et sont peu à l\'aise avec la technologie.',
     },
   ],
 };
@@ -94,7 +94,7 @@ export const howItWorksContent = {
     steps: [
       {
         number: '01',
-        title: 'Parlez à Djassaman',
+        title: 'Parlez au Djassaman',
         description: '"Je cherche une robe wax pas chère livrée à Cocody"',
       },
       {
@@ -160,11 +160,11 @@ export const advantagesContent = {
   items: [
     {
       title: 'IA vocale native',
-      description: 'Djassaman permet de créer et chercher sans savoir lire ni écrire',
+      description: 'Djassaman permet de créer et vendre par la voix, simplement',
     },
     {
-      title: 'Accessibilité faible littératie',
-      description: 'Interface pensée pour les utilisateurs peu lettrés',
+      title: 'Réduction des barrières d’accès',
+      description: 'Interface conçue pour réduire les barrières linguistiques et numériques',
     },
     {
       title: 'Trafic mutualisé',
@@ -299,9 +299,9 @@ export const roadmapContent = {
     },
     {
       period: '2027',
-      title: 'Extension Abidjan',
+      title: 'Extension nationnale',
       description:
-        'Extension à toute Abidjan puis Bouaké, Korhogo, San Pedro. Déploiement DjassWallet. Objectif 12 000 vendeurs, 500 000 acheteurs.',
+        'Déploiement sur tout Abidjan puis Bouaké, Korhogo, San Pedro. Déploiement du Wallet (Djai). Objectif 12 000 vendeurs, 500 000 acheteurs.',
     },
     {
       period: '2028+',
@@ -333,25 +333,13 @@ export const teamContent = {
       bio: 'Architecture technique et R&D. Expert full-stack et infrastructures cloud.',
       image: null,
     },
-    {
-      name: 'Tiemoko Sylla',
-      role: 'CDO',
-      bio: 'Spécialiste UX/UI Design. Expert expérience utilisateur pour marchés émergents.',
-      image: null,
-    },
-    {
-      name: 'Marc Koffi',
-      role: 'Responsable Produit',
-      bio: 'Gestion produit et roadmap. Expertise e-commerce et marketplaces.',
-      image: null,
-    },
   ],
 };
 
 export const fundraisingContent = {
   title: 'Levée de fonds',
-  amount: '500 000 EUR',
-  amountFCFA: '328 millions FCFA',
+  amount: '1.7M€',
+  amountFCFA: '1.1 Milliard FCFA',
   allocation: [
     { label: 'R&D Produit', percentage: 60, description: 'App mobile, IA Djassaman, back-office' },
     { label: 'Marketing & Acquisition', percentage: 30, description: 'Terrain, digital, ambassadeurs' },
@@ -369,10 +357,10 @@ export const fundraisingContent = {
   whatItFinances: {
     title: 'Ce que finance cette levée',
     points: [
-      'Finalisation de l\'app mobile iOS et Android',
-      'Développement complet de Djassaman (IA vocale)',
-      'Marketing terrain dans 10 quartiers d\'Abidjan',
-      'Constitution d\'un réseau de 50 vendeurs ambassadeurs',
+      'Développement de l\'écosystème technologique complet (Apps, Backend, Infra & Sécurité)',
+      'Développement complet du Djassaman (IA vocale)',
+      'Marketing terrain dans les quartiers d\'Abidjan',
+      'Constitution d\'un réseau de vendeurs ambassadeurs',
       'Intégration partenaires logistiques et paiement',
     ],
   },
@@ -382,9 +370,9 @@ export const faqContent = {
   title: 'Questions fréquentes',
   items: [
     {
-      question: 'Faut-il savoir lire pour utiliser DjassApp ?',
+      question: 'DjassApp est il conçu pour fonctionner sans interface textuelle complexe ?',
       answer:
-        'Non. DjassApp est conçu pour les personnes peu ou pas lettrées. L\'assistant vocal Djassaman guide l\'utilisateur à chaque étape, en français ou en langues locales.',
+        'Oui, DjassApp supprime la dépendance à l’écrit grâce à un assistant vocal multilingue qui guide l’ensemble des parcours utilisateurs.',
     },
     {
       question: 'Quels modes de paiement sont acceptés ?',
@@ -399,7 +387,7 @@ export const faqContent = {
     {
       question: 'DjassApp est-il disponible ?',
       answer:
-        'DjassApp est actuellement en phase de développement. Les tests pilotes débuteront fin 2025 dans 3 quartiers d\'Abidjan. Lancement public prévu T1 2026.',
+        'DjassApp est actuellement en phase d\'amorçage de développement. Les tests pilotes débuteront fin T3 2026. Lancement public prévu T4 2026.',
     },
   ],
 };
