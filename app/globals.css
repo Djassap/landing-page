@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+  /* Base colors */
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 9%);
+  
+  /* Brand colors - Mauve */
+  --primary: hsl(295, 18%, 51%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  
+  /* Brand colors - Rose/Pink */
+  --brand: hsl(344, 48%, 62%);
+  --brand-foreground: hsl(0, 0%, 100%);
+  
+  /* Secondary colors */
+  --secondary: hsl(295, 9%, 86%);
+  --secondary-foreground: hsl(295, 18%, 25%);
+  
+  /* Muted colors */
+  --muted: hsl(295, 9%, 95%);
+  --muted-foreground: hsl(0, 0%, 45%);
+  
+  /* Accent colors */
+  --accent: hsl(295, 18%, 51%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  
+  /* Borders and inputs */
+  --border: hsl(0, 0%, 89%);
+  --input: hsl(0, 0%, 89%);
+  --ring: hsl(295, 18%, 51%);
+  
+  /* Feedback colors */
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(38, 92%, 50%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  
+  /* Extended brand palette - Mauve */
+  --mauve-50: hsl(295, 15%, 98%);
+  --mauve-100: hsl(295, 15%, 95%);
+  --mauve-200: hsl(295, 13%, 87%);
+  --mauve-300: hsl(295, 11%, 76%);
+  --mauve-400: hsl(295, 11%, 62%);
+  --mauve-500: hsl(295, 18%, 51%);
+  --mauve-600: hsl(295, 24%, 43%);
+  --mauve-700: hsl(295, 25%, 35%);
+  --mauve-800: hsl(295, 23%, 28%);
+  --mauve-900: hsl(295, 20%, 25%);
+  --mauve-950: hsl(295, 30%, 14%);
+  
+  /* Extended brand palette - Rose/Pink */
+  --brand-50: hsl(344, 83%, 97%);
+  --brand-100: hsl(344, 75%, 93%);
+  --brand-200: hsl(344, 72%, 85%);
+  --brand-300: hsl(344, 68%, 74%);
+  --brand-400: hsl(344, 58%, 62%);
+  --brand-500: hsl(344, 48%, 55%);
+  --brand-600: hsl(344, 50%, 46%);
+  --brand-700: hsl(344, 52%, 37%);
+  --brand-800: hsl(344, 48%, 31%);
+  --brand-900: hsl(344, 43%, 27%);
+  --brand-950: hsl(344, 56%, 13%);
+  
+  /* shadcn/ui required variables */
+  --radius: 0.5rem;
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 9%);
+}
+
+@theme inline {
+  /* Map semantic colors to Tailwind */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  /* shadcn/ui colors */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  /* Extended palettes */
+  --color-mauve-50: var(--mauve-50);
+  --color-mauve-100: var(--mauve-100);
+  --color-mauve-200: var(--mauve-200);
+  --color-mauve-300: var(--mauve-300);
+  --color-mauve-400: var(--mauve-400);
+  --color-mauve-500: var(--mauve-500);
+  --color-mauve-600: var(--mauve-600);
+  --color-mauve-700: var(--mauve-700);
+  --color-mauve-800: var(--mauve-800);
+  --color-mauve-900: var(--mauve-900);
+  --color-mauve-950: var(--mauve-950);
+  
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+  
+  /* Fonts */
+  --font-sans: var(--font-roboto);
+  --font-display: var(--font-roboto);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-foreground bg-background;
+  }
+
+  ::selection {
+    @apply bg-mauve-200 text-mauve-900;
+  }
+  
+  /* Typography - ONLY 3 SIZES */
+  .text-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-black;
+  }
+  
+  .text-section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight leading-tight;
+  }
+  
+  /* text-base is already defined by Tailwind (1rem / 16px) */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
