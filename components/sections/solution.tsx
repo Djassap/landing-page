@@ -1,18 +1,18 @@
 import { Container } from '../ui/container';
 import { SectionTitle } from '../ui/section-title';
-import { Mic, Check, Sparkles } from 'lucide-react';
+import { Mic, CheckCircle2, Sparkles } from 'lucide-react';
 import { solutionContent } from '@/config/content';
 
 export function Solution() {
   return (
     <section id="solution" className="py-20 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background">
       <Container>
-        <SectionTitle 
+        <SectionTitle
           badge="Notre Solution"
           title="Le Djassaman : L'assistant vocal qui transforme votre commerce"
           subtitle="Notre intelligence artificielle vocale guide les vendeurs et acheteurs pas à pas, rendant le commerce en ligne accessible à tous, même sans expérience technique."
         />
-        
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Djassaman - Elegant presentation */}
           <div className="space-y-6">
@@ -27,7 +27,7 @@ export function Solution() {
                 <p className="text-xs text-primary font-medium">{solutionContent.djassaman.subtitle}</p>
               </div>
             </div>
-            
+
             <div className="space-y-4 pl-4 border-l-2 border-primary/20">
               <p className="text-base text-foreground/90 leading-relaxed">
                 {solutionContent.djassaman.sellerDescription}
@@ -50,15 +50,15 @@ export function Solution() {
             <h3 className="text-2xl font-bold text-foreground">
               {solutionContent.inclusion.title}
             </h3>
-            
+
             <div className="space-y-3">
               {solutionContent.inclusion.points.map((point, index) => (
-                <div 
-                  key={point} 
+                <div
+                  key={point}
                   className="group flex items-start gap-4 rounded-xl hover:bg-muted/50 transition-all duration-200"
                 >
-                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary flex-shrink-0 mt-0.5 transition-colors">
-                    <Check className="w-4 h-4 text-primary-foreground" />
+                  <div className="flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-5 h-5 text-primary/80 flex-shrink-0" />
                   </div>
                   <p className="text-foreground/80 leading-relaxed flex-1">{point}</p>
                 </div>
