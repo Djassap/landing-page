@@ -20,7 +20,7 @@ export function Contact() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {ambitionContent.stats.map((stat, index) => (
               <div key={stat.label} className="">
-                <div className="text-5xl md:text-6xl font-bold text-foreground mb-4 tracking-tighter">
+                <div className="text-5xl md:text-6xl font-bold text-primary mb-4 tracking-tighter">
                   {stat.value}
                 </div>
                 <div className="text-xl font-medium text-muted-foreground">{stat.label}</div>
