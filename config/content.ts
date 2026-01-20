@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: 'Adjame dans ta poche',
   parentCompany: 'Ando Technologies',
   contact: {
-    email: 'contact@djassapp.com',
+    email: 'akwaba@djassapp.com',
     deckUrl: '#contact',
   },
 };
