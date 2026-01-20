@@ -63,13 +63,15 @@ export function Hero() {
 
           <div className="relative">
             <div className="relative mx-auto max-w-xs">
-                  <Image 
-                    src="/accueil.png" 
-                    alt="Interface DjassApp" 
-                    width={400} 
-                    height={800}
-                    className="w-full h-auto"
-                  />
+              <Image
+                src="/accueil.png"
+                alt="Interface DjassApp"
+                width={400}
+                height={800}
+                className="w-full h-auto"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
             </div>
 
             <div className="absolute -top-4 -right-4 bg-background rounded-2xl p-4 shadow-lg border border-border animate-fade-in">

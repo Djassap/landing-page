@@ -8,7 +8,7 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" className="py-20 md:py-32 bg-background">
       <Container>
-        <SectionTitle 
+        <SectionTitle
           badge="Processus"
           title="Comment ça marche"
           subtitle="DjassApp simplifie la création de boutiques en ligne et l'achat de produits grâce à une interface vocale intuitive et accessible à tous."
@@ -40,12 +40,13 @@ export function HowItWorks() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-brand/10 rounded-[3rem] blur-3xl" />
             <div className="relative">
-              <Image 
-                src="/seller.png" 
-                alt="Interface Vendeur DjassApp" 
-                width={800} 
+              <Image
+                src="/seller.png"
+                alt="Interface Vendeur DjassApp"
+                width={800}
                 height={600}
                 className="w-full h-auto drop-shadow-2xl"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -57,12 +58,13 @@ export function HowItWorks() {
           <div className="relative lg:order-1 order-2">
             <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-primary/5 rounded-[3rem] blur-3xl" />
             <div className="relative">
-              <Image 
-                src="/customer_view.png" 
-                alt="Interface Acheteur DjassApp" 
-                width={1900} 
+              <Image
+                src="/customer_view.png"
+                alt="Interface Acheteur DjassApp"
+                width={1900}
                 height={1275}
                 className="w-full h-auto drop-shadow-2xl"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>
