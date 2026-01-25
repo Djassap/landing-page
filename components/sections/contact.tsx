@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useActionState, useEffect, useState } from 'react';
 import { Container } from '../ui/container';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Download, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Download, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import { siteConfig, ambitionContent } from '@/config/content';
 import {
   Dialog,
@@ -18,17 +18,22 @@ import {
 } from "@/components/ui/dialog";
 
 import { SectionTitle } from '../ui/section-title';
+import { sendEmail, ActionState } from '@/app/actions';
+
+const initialState: ActionState = {
+  success: false,
+  message: '',
+};
 
 export function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, formAction, isPending] = useActionState(sendEmail, initialState);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 1000);
-  };
+  useEffect(() => {
+    if (state.success) {
+      setShowSuccessDialog(true);
+    }
+  }, [state.success]);
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-background">
@@ -90,31 +95,32 @@ export function Contact() {
           </div>
 
           <div className="bg-muted/30 p-4 rounded-xl border border-border/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action={formAction} className="space-y-6">
               <div className="space-y-2 flex flex-col">
                 <Label htmlFor="name">Nom prénom</Label>
-                <Input id="name" required placeholder="Votre nom complet" className="" />
+                <Input name="name" id="name" required placeholder="Votre nom complet" className="" />
               </div>
 
               <div className="space-y-2 flex flex-col">
                 <Label htmlFor="company">Entreprise</Label>
-                <Input id="company" placeholder="Nom de votre entreprise" className="" />
+                <Input name="company" id="company" placeholder="Nom de votre entreprise" className="" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2 flex flex-col">
                   <Label htmlFor="email">Adresse mail</Label>
-                  <Input id="email" type="email" required placeholder="vous@exemple.com" className="" />
+                  <Input name="email" id="email" type="email" required placeholder="vous@exemple.com" className="" />
                 </div>
                 <div className="space-y-2 flex flex-col">
                   <Label htmlFor="phone">Téléphone</Label>
-                  <Input id="phone" type="tel" placeholder="+225 07..." className="" />
+                  <Input name="phone" id="phone" type="tel" placeholder="+225 07..." className="" />
                 </div>
               </div>
 
               <div className="space-y-2 flex flex-col">
                 <Label htmlFor="message">Message</Label>
                 <Textarea
+                  name="message"
                   id="message"
                   required
                   placeholder="Comment pouvons-nous vous aider ?"
@@ -122,15 +128,24 @@ export function Contact() {
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full rounded-lg">
-                Envoyer le message
-                <Send className="ml-2 w-4 h-4" />
+              <Button type="submit" size="lg" className="w-full rounded-lg" disabled={isPending}>
+                {isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  <>
+                    Envoyer le message
+                    <Send className="ml-2 w-4 h-4" />
+                  </>
+                )}
               </Button>
             </form>
           </div>
         </div>
 
-        <Dialog open={submitted} onOpenChange={setSubmitted}>
+        <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
           <DialogContent className="">
             <DialogHeader className="flex items-center text-center">
               <CheckCircle2 className="w-6 h-6 text-green-600" />
@@ -140,7 +155,7 @@ export function Contact() {
               </DialogDescription>
             </DialogHeader>
             <DialogFooter className="sm:justify-center mt-4">
-              <Button type="button" variant="outline" onClick={() => setSubmitted(false)} className="rounded-full min-w-[120px]">
+              <Button type="button" variant="outline" onClick={() => setShowSuccessDialog(false)} className="rounded-full min-w-[120px]">
                 Fermer
               </Button>
             </DialogFooter>
